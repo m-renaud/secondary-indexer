@@ -1,7 +1,7 @@
 #ifndef SECONDARY_INDEXER_HXX__
 #define SECONDARY_INDEXER_HXX__
 
-#include "primary_key_entry.hxx"
+#include "key_entry.hxx"
 #include "secondary_key_table.hxx"
 #include "binary_file.hxx"
 
@@ -34,7 +34,7 @@ auto generate_secondary_index(
 {
 	std::map<InterpretedSKT, int> secondary_index;
 	std::map<InterpretedSKT, int> last_position;
-	binary_file< primary_key_entry<Data> > pk_file(
+	binary_file< key_entry<Data> > pk_file(
 		filename,
 		std::ios_base::binary | std::ios_base::in
 		| std::ios_base::out | std::ios_base::trunc
@@ -56,7 +56,7 @@ auto generate_secondary_index(
 		{
 			pk_file(
 				lpi->second,
-				[&](primary_key_entry<Data>& field)
+				[&](key_entry<Data>& field)
 				{
 					field.set_next_RRN(current_RRN);
 				}

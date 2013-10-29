@@ -2,7 +2,7 @@
 #define SECONDARY_KEY_ITERATOR_HXX__
 
 #include "binary_file.hxx"
-#include "primary_key_entry.hxx"
+#include "key_entry.hxx"
 
 #include <string>
 
@@ -72,8 +72,8 @@ public:
 
 private:
 	std::string _filename;
-	binary_file< primary_key_entry<Data> > _pk_file;
-	primary_key_entry<Data> _pke;
+	binary_file< key_entry<Data> > _pk_file;
+	key_entry<Data> _pke;
 	int _current;
 };
 

@@ -1,5 +1,5 @@
-#ifndef PRIMARY_KEY_ENTRY_HXX__
-#define PRIMARY_KEY_ENTRY_HXX__
+#ifndef KEY_ENTRY_HXX__
+#define KEY_ENTRY_HXX__
 
 #include <utility>
 
@@ -8,21 +8,21 @@
 // Aggregate of the primary key and data associated with it as well as
 // a field for the next relative record number.
 template <typename T>
-class primary_key_entry
+class key_entry
 {
 public:
 	using value_type = T;
 
-	primary_key_entry() = default;
-	primary_key_entry(primary_key_entry const&) = default;
-	primary_key_entry(primary_key_entry&&) = default;
+	key_entry() = default;
+	key_entry(key_entry const&) = default;
+	key_entry(key_entry&&) = default;
 
-	primary_key_entry& operator =(primary_key_entry const&) = default;
-	primary_key_entry& operator =(primary_key_entry&&) = default;
+	key_entry& operator =(key_entry const&) = default;
+	key_entry& operator =(key_entry&&) = default;
 
-	~primary_key_entry() = default;
+	~key_entry() = default;
 
-	primary_key_entry(T const& data, std::size_t nRRN)
+	key_entry(T const& data, std::size_t nRRN)
 		: _data(data), _nextRRN(nRRN)
 	{
 	}
@@ -39,4 +39,4 @@ private:
 	int _nextRRN;
 };
 
-#endif // #ifndef PRIMARY_KEY_ENTRY_HXX__
+#endif // #ifndef KEY_ENTRY_HXX__
