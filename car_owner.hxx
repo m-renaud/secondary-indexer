@@ -2,6 +2,7 @@
 #define CAR_OWNER_HXX__
 
 #include <iostream>
+#include <iomanip>
 #include <cstring>
 #include <string>
 
@@ -22,7 +23,9 @@ struct car_owner
 // Allow car_owner's to be written to an ostream.
 std::ostream& operator <<(std::ostream& os, car_owner const& co)
 {
-	return os << std::string(co.owner) << "\t" << std::string(co.make);
+	return os << "--------\n"
+	          << "  Owner: " << std::string(co.owner) << "\n"
+	          << "  Make: " << std::string(co.make);
 }
 
 // Allow car_owner's to be read from an istream.
