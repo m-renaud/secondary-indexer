@@ -23,8 +23,7 @@ struct car_owner
 // Allow car_owner's to be written to an ostream.
 std::ostream& operator <<(std::ostream& os, car_owner const& co)
 {
-	return os << "--------\n"
-	          << "  Owner: " << std::string(co.owner) << "\n"
+	return os << "  Owner: " << std::string(co.owner) << "\n"
 	          << "  Make: " << std::string(co.make);
 }
 
