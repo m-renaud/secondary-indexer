@@ -69,7 +69,30 @@ std::ostream& operator <<(std::ostream& os, car_owner const& co)
 
 ## Building the Secondary Index
 
-See `build_car_owner_index.cxx`.
+Building the secondary index is accoplished with the
+`generate_secondary_index` function template defined in
+`secondary_indexer.hxx`.
+
+### Function Arguments
+
+- **Begin Iterator** :: The start iterator to a sequence of tuples.
+- **End Iterator** :: The end iterator to a sequence of tuples.
+- **Primary Key Filename** :: Where to save the primary key file.
+- **Secondary Key Pointer** :: A pointer to the member used as the
+  secondary index.
+
+### Function Type Parameters
+
+It also has a mandatory template parameter, the type that the
+secondary index is to be interpreted as. This is necessary because if
+you are trying to index by a `char[]`, you need to have it interpreted
+as a `std::string` so that it is compatible with the STL data
+structures and algorithms.
+
+### Return Value
+
+The function returns a `secondary_key_table<intepretation_type>` which
+can then be saved to an external file to be used later for querying.
 
 ## Query the Secondary Index
 
