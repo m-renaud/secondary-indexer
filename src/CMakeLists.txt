@@ -4,6 +4,6 @@ project(secondary_indexer)
 
 add_definitions("--std=c++11")
 
-add_executable(build-secondary-index build_secondary_index.cxx)
-add_executable(query query_secondary_index.cxx)
+add_executable(build-car-owner-index build_car_owner_index.cxx)
+add_executable(query-car-owner query_car_owner.cxx)
 
